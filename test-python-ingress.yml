@@ -1,0 +1,24 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: GRP-NAME-TKT-NUM
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    # Avoid the Google Compute Engine controller from processing this Ingress. 
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: xip.io
+  - http:
+      paths:
+      - path:
+        backend:
+          serviceName: default-dcs
+          servicePort: 8000
+status:
+  loadBalancer:
+    ingress:
+    - ip: 10.222.222.111
+    - ip: 10.222.222.113
+    - ip: 10.222.222.114

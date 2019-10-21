@@ -1,0 +1,60 @@
+kind: Service
+apiVersion: v1
+metadata:
+#  annotations:
+#    field.cattle.io/targetWorkloadIds: '["deployment:NS:GRP-NAME-PRJ-COD-deployment"]'
+#  name: GRP-NAME-PRJ-COD
+  name: sheldon1
+  namespace: default
+spec:
+  ports:
+  - port: 8000
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    app: GRP-NAME-PRJ-COD
+  type: ClusterIP
+#
+#
+#
+#
+#  replicas: 3
+#  selector:
+#    matchLabels:
+#      deploy: Default
+#  template:
+#    metadata:
+#      labels:
+#        deploy: Default
+#    spec:
+#      containers:
+#        - name: GRP-NAME-TKT-NUM
+#          image: registry.mzdev.kr/IMAGE_PROJECT/IMAGE_NAME:IMAGE_TAG
+#---
+#kind: Ingress
+#apiVersion: extensions/v1beta1
+#metadata:
+#  name: test
+#spec:
+#  backend:
+#    serviceName: GRP-NAME-PRJ-COD
+#    servicePort: 8000
+#---
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: GRP-NAME-TKT-NUM
+#  namespace: dev
+#  ownerReferences:
+#  - apiVersion: v1beta1/extensions
+#    controller: true
+#    kind: Ingress
+#    name: GRP-NAME-TKT-NUM
+#spec:
+#  ports:
+#  - port: 8000
+#    protocol: TCP
+#    targetPort: 8000
+#  type: ClusterIP
+#status:
+#  loadBalancer: {}

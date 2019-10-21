@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: GRP-NAME-TKT-NUM
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - host: GRP-NAME-TKT-NUM.dev.awsdev.mzdev.kr
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: GRP-NAME-TKT-NUM
+          servicePort: 8080

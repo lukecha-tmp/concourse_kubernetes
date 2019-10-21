@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  annotations:
+    field.cattle.io/targetWorkloadIds: '["deployment:NS:GRP-NAME-PRJ-COD-deployment"]'
+  name: GRP-NAME-TKT-NUM
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: GRP-NAME-PRJ-COD
+    workloadID_GRP-NAME-TKT-NUM: "true"
+  type: ClusterIP
+

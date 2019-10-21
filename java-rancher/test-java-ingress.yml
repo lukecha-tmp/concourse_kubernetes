@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: GRP-NAME-TKT-NUM
+spec:
+  rules:
+  - host: xip.io
+    http:
+      paths:
+      - backend:
+          serviceName: GRP-NAME-TKT-NUM
+          servicePort: 8080
+        path:  
+status:
+  loadBalancer:
+    ingress:
+    - ip: 10.222.222.111
+    - ip: 10.222.222.113
+    - ip: 10.222.222.114
+

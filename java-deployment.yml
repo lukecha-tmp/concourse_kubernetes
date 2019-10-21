@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: GRP-NAME-PRJ-COD-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: GRP-NAME-PRJ-COD
+  template:
+    metadata:
+      labels:
+        app: GRP-NAME-PRJ-COD
+    spec:
+      containers:
+        - name: GRP-NAME-TKT-NUM
+          image: REGISTRY_NAME/IMAGE_PROJECT/IMAGE_NAME:IMAGE_TAG
+          ports:
+            - containerPort: 8080
